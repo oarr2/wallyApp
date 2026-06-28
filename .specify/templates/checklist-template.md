@@ -34,12 +34,13 @@
 
 ## Constitutional Review
 
-- [ ] CHKXXX Spanish-first UX is covered for customer and admin-facing copy
-- [ ] CHKXXX Responsive behavior from 320px is covered for affected screens
+- [ ] CHKXXX Spanish-only UX is covered for customer-facing and administrator-facing copy, including loading, empty, and error states
+- [ ] CHKXXX Responsive behavior from 320px, touch-friendly controls, and no horizontal scrolling are covered for affected screens
 - [ ] CHKXXX Reservation integrity risks are covered for the two courts and supported sports
 - [ ] CHKXXX Payment safety, retries, reconciliation, and audit records are covered when payments are in scope
-- [ ] CHKXXX Customer/admin access-control and protected data expectations are covered
-- [ ] CHKXXX Next.js, TypeScript, Tailwind CSS, Supabase PostgreSQL, and Prisma usage or exceptions are covered
+- [ ] CHKXXX Player, Venue Administrator, and Wally Administrator access-control and protected data expectations are covered
+- [ ] CHKXXX Torneos is limited to a Spanish Próximamente placeholder during MVP, with tournament management excluded
+- [ ] CHKXXX Next.js, TypeScript, Tailwind CSS design system, Supabase PostgreSQL, and Prisma usage or exceptions are covered
 
 ## Notes
 

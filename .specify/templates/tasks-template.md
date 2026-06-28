@@ -11,8 +11,9 @@ description: "Task list template for feature implementation"
 
 **Tests**: The examples below include test tasks. Tests are OPTIONAL unless the
 feature touches reservation state changes, payment behavior, access control,
-audit records, responsive layout, Spanish-first UX, or regression-prone domain
-rules; those areas require automated or documented validation by the constitution.
+audit records, responsive layout, Spanish-only UX, Torneos placeholder behavior,
+or regression-prone domain rules; those areas require automated or documented
+validation by the constitution.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -75,8 +76,9 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T009 Setup environment configuration management
 - [ ] T010 Define Prisma models/migrations for courts, sports, schedules, prices, reservations, payments, and audits
 - [ ] T011 Define audit-safe logging for reservation and payment operations
-- [ ] T012 Define shared access-control checks for customer and admin roles
-- [ ] T013 Define Spanish-first UI copy conventions and responsive 320px layout baseline
+- [ ] T012 Define shared access-control checks for Player, Venue Administrator, and Wally Administrator roles
+- [ ] T013 Define Spanish-only UI copy conventions, loading/empty/error states, and responsive 320px layout baseline
+- [ ] T014 Define shared Tailwind CSS design system usage for affected UI
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -92,19 +94,19 @@ Examples of foundational tasks (adjust based on your project):
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T014 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].[ts]
-- [ ] T015 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].[ts]
-- [ ] T016 [P] [US1] Reservation conflict/payment/access-control test in tests/integration/test_[name].[ts]
-- [ ] T017 [P] [US1] Responsive 320px and Spanish copy validation for [screen/flow]
+- [ ] T015 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].[ts]
+- [ ] T016 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].[ts]
+- [ ] T017 [P] [US1] Reservation conflict/payment/access-control test in tests/integration/test_[name].[ts]
+- [ ] T018 [P] [US1] Responsive 320px, no-horizontal-scroll, and Spanish-only copy validation for [screen/flow]
 
 ### Implementation for User Story 1
 
-- [ ] T018 [P] [US1] Create/update Prisma model for [Entity1] in prisma/schema.prisma
-- [ ] T019 [P] [US1] Create [UI component/page] in app/[route]/page.tsx or components/[name].tsx
-- [ ] T020 [US1] Implement [service/action] in lib/[domain]/[service].ts
-- [ ] T021 [US1] Implement [endpoint/server action/feature] in app/[route]/[file].ts
-- [ ] T022 [US1] Add validation and error handling with Spanish user-facing messages
-- [ ] T023 [US1] Add audit records for reservation/payment changes
+- [ ] T019 [P] [US1] Create/update Prisma model for [Entity1] in prisma/schema.prisma
+- [ ] T020 [P] [US1] Create [UI component/page] in app/[route]/page.tsx or components/[name].tsx using the Tailwind CSS design system
+- [ ] T021 [US1] Implement [service/action] in lib/[domain]/[service].ts
+- [ ] T022 [US1] Implement [endpoint/server action/feature] in app/[route]/[file].ts
+- [ ] T023 [US1] Add validation and error handling with Spanish user-facing messages
+- [ ] T024 [US1] Add audit records for reservation/payment changes
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -118,17 +120,17 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (REQUIRED if constitutional domains are touched) ⚠️
 
-- [ ] T024 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].[ts]
-- [ ] T025 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].[ts]
-- [ ] T026 [P] [US2] Reservation conflict/payment/access-control test in tests/integration/test_[name].[ts]
-- [ ] T027 [P] [US2] Responsive 320px and Spanish copy validation for [screen/flow]
+- [ ] T025 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].[ts]
+- [ ] T026 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].[ts]
+- [ ] T027 [P] [US2] Reservation conflict/payment/access-control test in tests/integration/test_[name].[ts]
+- [ ] T028 [P] [US2] Responsive 320px, no-horizontal-scroll, and Spanish-only copy validation for [screen/flow]
 
 ### Implementation for User Story 2
 
-- [ ] T028 [P] [US2] Create/update Prisma model for [Entity] in prisma/schema.prisma
-- [ ] T029 [US2] Implement [service/action] in lib/[domain]/[service].ts
-- [ ] T030 [US2] Implement [endpoint/server action/feature] in app/[route]/[file].ts
-- [ ] T031 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T029 [P] [US2] Create/update Prisma model for [Entity] in prisma/schema.prisma
+- [ ] T030 [US2] Implement [service/action] in lib/[domain]/[service].ts
+- [ ] T031 [US2] Implement [endpoint/server action/feature] in app/[route]/[file].ts
+- [ ] T032 [US2] Integrate with User Story 1 components (if needed)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -142,16 +144,16 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (REQUIRED if constitutional domains are touched) ⚠️
 
-- [ ] T032 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].[ts]
-- [ ] T033 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].[ts]
-- [ ] T034 [P] [US3] Reservation conflict/payment/access-control test in tests/integration/test_[name].[ts]
-- [ ] T035 [P] [US3] Responsive 320px and Spanish copy validation for [screen/flow]
+- [ ] T033 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].[ts]
+- [ ] T034 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].[ts]
+- [ ] T035 [P] [US3] Reservation conflict/payment/access-control test in tests/integration/test_[name].[ts]
+- [ ] T036 [P] [US3] Responsive 320px, no-horizontal-scroll, and Spanish-only copy validation for [screen/flow]
 
 ### Implementation for User Story 3
 
-- [ ] T036 [P] [US3] Create/update Prisma model for [Entity] in prisma/schema.prisma
-- [ ] T037 [US3] Implement [service/action] in lib/[domain]/[service].ts
-- [ ] T038 [US3] Implement [endpoint/server action/feature] in app/[route]/[file].ts
+- [ ] T037 [P] [US3] Create/update Prisma model for [Entity] in prisma/schema.prisma
+- [ ] T038 [US3] Implement [service/action] in lib/[domain]/[service].ts
+- [ ] T039 [US3] Implement [endpoint/server action/feature] in app/[route]/[file].ts
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -171,7 +173,8 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Verify reservation/payment audit evidence avoids sensitive data exposure
-- [ ] TXXX Verify Spanish-first UX and 320px responsive layout for affected screens
+- [ ] TXXX Verify Spanish-only UX, loading/empty/error states, and 320px responsive layout for affected screens
+- [ ] TXXX Verify Torneos remains a Spanish Próximamente placeholder when present in MVP navigation
 - [ ] TXXX Run quickstart.md validation
 
 ---
@@ -197,7 +200,8 @@ Examples of foundational tasks (adjust based on your project):
 
 - Required tests MUST be written and FAIL before implementation
 - Reservation, payment, audit, access-control, and regression-prone domain tests are required
-- Spanish-first UX and 320px responsive behavior require automated or documented validation
+- Spanish-only UX, loading/empty/error states, no horizontal scrolling, and 320px responsive behavior require automated or documented validation
+- Torneos navigation, when present during MVP, must remain a Spanish Próximamente placeholder with no tournament management behavior
 - Models before services
 - Services before endpoints
 - Core implementation before integration

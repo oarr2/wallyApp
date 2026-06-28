@@ -75,7 +75,8 @@
   Fill them out with the right edge cases. For reservation or payment features,
   include concurrency, cancellation, payment retry/failure, refund, timezone, and
   role-permission boundaries where applicable. For UI features, include behavior
-  from 320px width and Spanish copy/error-state expectations.
+  from 320px width, touch interaction, no horizontal scrolling, and Spanish
+  loading, empty, and error state expectations.
 -->
 
 - What happens when [boundary condition]?
@@ -99,20 +100,28 @@
   and conflict behavior when the feature touches booking flows
 - **FR-007**: System MUST define payment outcome, retry, reconciliation, and
   reservation-status behavior when the feature touches payments
-- **FR-008**: System MUST define which roles can perform each action and which
-  personal, reservation, or payment data each role can view
-- **FR-009**: System MUST present customer and admin user-facing copy in Spanish
-  for primary flows, errors, confirmations, and empty states
+- **FR-008**: System MUST define which Player, Venue Administrator, and Wally
+  Administrator roles can perform each action and which personal, reservation,
+  payment, or audit data each role can view
+- **FR-009**: System MUST present customer-facing and administrator-facing copy
+  in Spanish for primary flows, loading states, errors, confirmations, and empty
+  states, with no English UI, i18n, or language switching in MVP scope
 - **FR-010**: System MUST support responsive use from 320px width through desktop
-  for booking, payment, reservation viewing, and admin workflows
+  for booking, payment, reservation viewing, availability management, and
+  administrator workflows with no horizontal scrolling
 - **FR-011**: System MUST create audit records for reservation changes and
   payment state changes with actor, timestamp, before/after state, and reason
   where applicable
+- **FR-012**: System MUST keep MVP scope limited to court reservations,
+  reservation payments, court availability management, reservation management,
+  and basic role-based access unless the constitution is amended
+- **FR-013**: System MUST render any MVP Torneos navigation target as a Spanish
+  Próximamente placeholder and MUST NOT include tournament management behavior
 
 *Example of marking unclear requirements:*
 
-- **FR-012**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-013**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-014**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
+- **FR-015**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
 ### Key Entities *(include if feature involves data)*
 
@@ -121,6 +130,8 @@
 - **Reservation**: Customer booking for a court, sport, date/time window, status, and payment relationship
 - **Payment**: Payment attempt or settled payment tied to a reservation and reconciliation state
 - **Audit Record**: Actor, timestamp, before/after state, and reason for reservation or payment changes
+- **Role**: Player, Venue Administrator, or Wally Administrator permission boundary
+- **Tournament Placeholder**: Spanish Próximamente page for future Torneos navigation during the MVP
 
 ## Success Criteria *(mandatory)*
 
@@ -145,6 +156,6 @@
 -->
 
 - [Assumption about target users, e.g., "Users have stable internet connectivity"]
-- [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
+- [Assumption about scope boundaries, e.g., "Tournament management remains out of scope for the MVP"]
 - [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
 - [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]

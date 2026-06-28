@@ -46,15 +46,23 @@
 - **Payment and Audit Safety**: If this feature touches charges, refunds, payment
   failures, retries, or adjustments, the plan defines idempotency, reconciliation,
   reservation status impact, and audit records for all state changes.
-- **Spanish-First Mobile Experience**: The plan defines Spanish user-facing copy
-  expectations and responsive behavior from 320px through desktop widths.
-- **Role-Based Operations**: The plan identifies customer and admin permissions,
-  protected routes/actions, and limits exposed reservation, personal, payment,
-  and audit data.
-- **Preferred Stack and Performance**: The plan uses Next.js, TypeScript,
-  Tailwind CSS, Supabase PostgreSQL, and Prisma by default. Deviations, new
-  infrastructure, external services, background jobs, or broad abstractions are
-  justified in Complexity Tracking.
+- **Spanish-Only Mobile-First Experience**: The plan defines Spanish
+  customer-facing and administrator-facing copy, loading/empty/error states,
+  responsive behavior from 320px through desktop widths, touch-friendly controls,
+  and no horizontal scrolling. It does not add i18n, language switching, or
+  English UI for MVP work.
+- **Role-Based Operations**: The plan identifies Player, Venue Administrator,
+  and Wally Administrator permissions, protected routes/actions, and limits
+  exposed reservation, personal, payment, and audit data.
+- **MVP Scope and Future Modules**: The plan stays within court reservations,
+  reservation payments, court availability management, reservation management,
+  and basic role-based access. If navigation includes Torneos, the plan limits
+  it to a Spanish Próximamente placeholder and excludes tournament management.
+- **Preferred Stack, Design System, and Performance**: The plan uses Next.js,
+  TypeScript, Tailwind CSS, Supabase PostgreSQL, and Prisma by default, applies
+  the shared Tailwind CSS design system, and justifies deviations, new
+  infrastructure, external services, background jobs, or broad abstractions in
+  Complexity Tracking.
 
 ## Project Structure
 
