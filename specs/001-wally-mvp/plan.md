@@ -17,9 +17,10 @@ includes a `Torneos` navigation item that opens only a Spanish `Próximamente`
 placeholder for future tournaments.
 
 Technical approach: scaffold a single Next.js TypeScript application deployed to
-Vercel, style it with Tailwind CSS, store domain data in Supabase PostgreSQL
-managed through Prisma migrations, use Supabase Auth sessions for user identity,
-and enforce role authorization in server actions, route handlers, and protected
+Vercel, style it with Tailwind CSS and shadcn/ui primitives, use lucide-react
+icons for common actions, store domain data in Supabase PostgreSQL managed
+through Prisma migrations, use Supabase Auth sessions for user identity, and
+enforce role authorization in server actions, route handlers, and protected
 layouts. Reservation creation uses a transactional conflict check against court
 time windows, payment status changes create auditable history, and all UI states
 remain Spanish-only with no i18n or language switching.
@@ -29,9 +30,10 @@ remain Spanish-only with no i18n or language switching.
 **Language/Version**: TypeScript 5.x with Node.js 20 LTS runtime for local
 development, Vercel build, Prisma CLI, and test execution.
 
-**Primary Dependencies**: Next.js App Router, React, Tailwind CSS, Prisma,
-Supabase JavaScript client and auth helpers, Zod for input validation, Vitest for
-unit/integration tests, Playwright for responsive and user-journey tests.
+**Primary Dependencies**: Next.js App Router, React, Tailwind CSS, shadcn/ui
+component primitives, lucide-react icons, Prisma, Supabase JavaScript client and
+auth helpers, Zod for input validation, Vitest for unit/integration tests,
+Playwright for responsive and user-journey tests.
 
 **Storage**: Supabase PostgreSQL as the system of record. Prisma owns schema
 models, migrations, constraints, and transactional data access. Supabase Auth
@@ -56,10 +58,11 @@ admin reservation/payment lists support quick filtering for MVP-scale venue
 operations.
 
 **Constraints**: Spanish-only UI; no i18n infrastructure; no language switcher;
-mobile-first layout from 320px; no horizontal scrolling; touch-friendly controls;
-`Torneos` is a Spanish `Próximamente` placeholder only; no tournament
-functionality; all protected operations require an authenticated session and role
-authorization; reservation and payment changes must be auditable.
+no Figma dependency; mobile-first layout from 320px; no horizontal scrolling;
+touch-friendly controls; `Torneos` is a Spanish `Próximamente` placeholder only;
+no tournament functionality; all protected operations require an authenticated
+session and role authorization; reservation and payment changes must be
+auditable.
 
 **Scale/Scope**: MVP scope covers two courts, wally reservations, reservation
 payments/status tracking, schedule and availability management, reservation
@@ -94,8 +97,9 @@ Administrator, and a future tournaments placeholder.
   fixtures, standings, results management, rankings, push notifications,
   marketplace features, and multi-language support are excluded.
 - **Preferred Stack, Design System, and Performance**: PASS. The plan uses
-  Next.js, TypeScript, Tailwind CSS, Supabase PostgreSQL, Prisma, and Vercel. UI
-  work uses a shared Tailwind design system and no stack deviation is required.
+  Next.js, TypeScript, Tailwind CSS, shadcn/ui, lucide-react, Supabase
+  PostgreSQL, Prisma, and Vercel. UI work uses a shared Tailwind/shadcn design
+  system and no stack deviation is required.
 
 ## Project Structure
 
@@ -141,6 +145,7 @@ components/
 ├── reservations/
 ├── payments/
 ├── admin/
+├── states/
 └── ui/
 
 lib/
@@ -398,6 +403,14 @@ See [contracts/routes.md](./contracts/routes.md) and
 - All customer-facing and administrator-facing UI text is Spanish.
 - No i18n setup, locale route segments, translation files, language selector, or
   English fallback UI.
+- No Figma handoff, design-file dependency, or design-token import is required;
+  the MVP UI source of truth is the codebase.
+- Tailwind CSS provides layout, spacing, color, typography, and responsive
+  utility styling.
+- shadcn/ui provides the baseline primitives for buttons, cards, forms, inputs,
+  selects, badges, tabs, dialogs, sheets, tables, skeletons, and alerts.
+- lucide-react provides icons for navigation and recognizable actions such as
+  booking, calendar, payment, filters, edit, cancel, and admin tools.
 - Mobile-first layout starts at 320px width.
 - No horizontal scrolling on primary screens or admin tables; tables collapse to
   stacked/list layouts on small screens.
@@ -408,8 +421,25 @@ See [contracts/routes.md](./contracts/routes.md) and
   detail, `Administración` for admins, and `Torneos`.
 - Tailwind CSS design system defines shared tokens/components for buttons,
   inputs, status badges, cards, list rows, alerts, modals, and admin filters.
+- The visual direction is a clean sports booking product: professional, simple,
+  high-contrast enough for outdoor/mobile use, and focused on fast reservation
+  decisions rather than marketing content.
+- Primary actions use one clear button per decision area, with secondary or
+  destructive actions visually subordinate and confirmed through dialogs or
+  sheets when needed.
+- Court browsing, slot selection, upcoming reservations, and reservation details
+  use card-based layouts with concise Spanish labels, date/time prominence, court
+  identity, and payment state visibility.
+- Admin courts, schedules, availability, reservations, and payment history use
+  readable tables on desktop and stacked cards on mobile, preserving filters and
+  row actions without horizontal scroll.
+- Shared state components cover Spanish loading, empty, error, authorization,
+  conflict, and success states, with a clear next action when applicable.
 - Payment states use consistent Spanish labels and visual treatments:
   `Pendiente`, `Pagado`, `Fallido`, `Reembolsado`.
+- `Torneos` is a polished `Próximamente` screen using the same navigation,
+  spacing, icon, card, and state patterns, but it must not include tournament
+  forms, tables, admin controls, or functional calls to action.
 
 ## Responsive Behavior From 320px
 

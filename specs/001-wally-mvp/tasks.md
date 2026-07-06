@@ -18,6 +18,7 @@
 
 - Next.js App Router source: `app/`
 - Shared UI: `components/`
+- shadcn/ui primitives: `components/ui/`
 - Domain actions/data/auth/time/validation: `lib/`
 - Database schema and seed: `prisma/`
 - Tests: `tests/unit/`, `tests/integration/`, `tests/e2e/`
@@ -31,15 +32,20 @@
 - [ ] T002 Add TypeScript compiler settings for the App Router project in `tsconfig.json`
 - [ ] T003 Add Next.js runtime configuration in `next.config.ts`
 - [ ] T004 Add Tailwind CSS and PostCSS configuration in `tailwind.config.ts` and `postcss.config.mjs`
-- [ ] T005 Create global Spanish-first app styles and responsive base rules in `app/globals.css`
+- [ ] T005 Create global Spanish-first Tailwind app styles, design tokens, and responsive base rules in `app/globals.css`
 - [ ] T006 Create the root App Router layout shell in `app/layout.tsx`
 - [ ] T007 Create the authenticated-aware home route placeholder in `app/page.tsx`
-- [ ] T008 Create the planned source directory structure with placeholder index files in `components/ui/index.ts`, `components/navigation/index.ts`, `components/reservations/index.ts`, `components/payments/index.ts`, `components/admin/index.ts`, `lib/actions/index.ts`, `lib/auth/index.ts`, `lib/data/index.ts`, `lib/validation/index.ts`, and `lib/time/index.ts`
+- [ ] T008 Create the planned source directory structure with placeholder index files in `components/ui/index.ts`, `components/navigation/index.ts`, `components/reservations/index.ts`, `components/payments/index.ts`, `components/admin/index.ts`, `components/states/index.ts`, `lib/actions/index.ts`, `lib/auth/index.ts`, `lib/data/index.ts`, `lib/validation/index.ts`, and `lib/time/index.ts`
 - [ ] T009 Configure ESLint for TypeScript and Next.js rules in `eslint.config.mjs`
 - [ ] T010 Configure Vitest for unit and integration tests in `vitest.config.ts`
 - [ ] T011 Configure Playwright projects for 320px, 375px, 768px, and desktop viewports in `playwright.config.ts`
 - [ ] T012 Add local environment variable documentation without secrets in `.env.example`
 - [ ] T013 Add a Spanish-only UI guard note and MVP constraints to `README.md`
+- [ ] T128 Add shadcn/ui configuration for Tailwind aliases and component generation in `components.json`
+- [ ] T129 Add lucide-react and required shadcn/ui package dependencies to `package.json`
+- [ ] T130 Create initial shadcn/ui primitives for `button`, `card`, `input`, `label`, `select`, `badge`, `tabs`, `dialog`, `sheet`, `table`, `skeleton`, and `alert` in `components/ui/`
+- [ ] T131 Create shared utility helpers for class merging and UI variants in `lib/utils.ts`
+- [ ] T132 Document the professional mobile-first UI direction, no-Figma constraint, and no-i18n constraint in `README.md`
 
 ## Phase 2: Supabase and Prisma Setup
 
@@ -111,7 +117,8 @@
 - [ ] T055 [US1] Implement `createReservationAction` and `cancelReservationAction` server action shells in `lib/actions/reservations.ts`
 - [ ] T056 [P] [US1] Create reusable court selector and date selector components in `components/reservations/CourtDateSelector.tsx`
 - [ ] T057 [P] [US1] Create reusable available slot picker component in `components/reservations/SlotPicker.tsx`
-- [ ] T058 [P] [US1] Create reservation card component with Spanish payment status badge in `components/reservations/ReservationCard.tsx`
+- [ ] T058 [P] [US1] Create card-based reservation component using shadcn/ui Card, Button, and Spanish payment status badge in `components/reservations/ReservationCard.tsx`
+- [ ] T133 [P] [US1] Create mobile-first court card component with clear Spanish primary action in `components/reservations/CourtCard.tsx`
 - [ ] T059 [US1] Create `/reservar` Player page with Spanish loading, empty, conflict, and success states in `app/(player)/reservar/page.tsx`
 - [ ] T060 [US1] Create `/reservas` Player upcoming reservations page with Spanish empty state in `app/(player)/reservas/page.tsx`
 - [ ] T061 [US1] Create `/reservas/[reservationId]` Player reservation detail page with cancellation affordance in `app/(player)/reservas/[reservationId]/page.tsx`
@@ -139,7 +146,7 @@
 - [ ] T071 [US2] Implement idempotent payment event processing in `lib/data/payments.ts`
 - [ ] T072 [US2] Implement `adminUpdatePaymentStatusAction` in `lib/actions/payments.ts`
 - [ ] T073 [US2] Implement `POST /api/pagos/eventos` route handler in `app/api/pagos/eventos/route.ts`
-- [ ] T074 [P] [US2] Create payment status badge component in `components/payments/PaymentStatusBadge.tsx`
+- [ ] T074 [P] [US2] Create payment status badge component with consistent shadcn/ui Badge variants for `Pendiente`, `Pagado`, `Fallido`, and `Reembolsado` in `components/payments/PaymentStatusBadge.tsx`
 - [ ] T075 [P] [US2] Create payment history list component in `components/payments/PaymentHistoryList.tsx`
 - [ ] T076 [US2] Add payment status and history display to reservation detail page in `app/(player)/reservas/[reservationId]/page.tsx`
 
@@ -164,12 +171,13 @@
 - [ ] T084 [US3] Implement availability override create/update admin data access with audit writes in `lib/data/availability.ts`
 - [ ] T085 [US3] Implement admin reservation search, filter, detail, and cancellation data access in `lib/data/admin-reservations.ts`
 - [ ] T086 [US3] Implement admin server actions for courts, schedules, availability, and reservation cancellation in `lib/actions/admin.ts`
-- [ ] T087 [P] [US3] Create admin page shell and filter components in `components/admin/AdminShell.tsx` and `components/admin/AdminFilters.tsx`
-- [ ] T088 [P] [US3] Create court management form component in `components/admin/CourtForm.tsx`
-- [ ] T089 [P] [US3] Create schedule rule form component in `components/admin/ScheduleRuleForm.tsx`
-- [ ] T090 [P] [US3] Create availability override form component in `components/admin/AvailabilityOverrideForm.tsx`
-- [ ] T091 [P] [US3] Create admin reservation list and detail components in `components/admin/AdminReservationList.tsx` and `components/admin/AdminReservationDetail.tsx`
-- [ ] T092 [P] [US3] Create admin payment history review component in `components/admin/AdminPaymentHistory.tsx`
+- [ ] T087 [P] [US3] Create admin page shell and filter components using shadcn/ui Tabs, Sheet, Button, and form controls in `components/admin/AdminShell.tsx` and `components/admin/AdminFilters.tsx`
+- [ ] T088 [P] [US3] Create court management form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/CourtForm.tsx`
+- [ ] T089 [P] [US3] Create schedule rule form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/ScheduleRuleForm.tsx`
+- [ ] T090 [P] [US3] Create availability override form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/AvailabilityOverrideForm.tsx`
+- [ ] T091 [P] [US3] Create admin reservation list and detail components with desktop tables and mobile cards in `components/admin/AdminReservationList.tsx` and `components/admin/AdminReservationDetail.tsx`
+- [ ] T092 [P] [US3] Create admin payment history review component with desktop table, mobile cards, filters, and Spanish payment badges in `components/admin/AdminPaymentHistory.tsx`
+- [ ] T134 [P] [US3] Create reusable responsive admin table/card pattern for desktop tables and mobile cards in `components/admin/ResponsiveAdminList.tsx`
 - [ ] T093 [US3] Create court management page in `app/admin/canchas/page.tsx`
 - [ ] T094 [US3] Create schedule management page in `app/admin/horarios/page.tsx`
 - [ ] T095 [US3] Create availability management page in `app/admin/disponibilidad/page.tsx`
@@ -190,7 +198,7 @@
 
 ### Implementation for User Story 4
 
-- [ ] T101 [US4] Create the Spanish Torneos `Próximamente` page in `app/torneos/page.tsx`
+- [ ] T101 [US4] Create the polished Spanish Torneos `Próximamente` page using shared shadcn/ui layout patterns and no tournament actions in `app/torneos/page.tsx`
 - [ ] T102 [US4] Add the Torneos navigation item without admin tournament controls in `components/navigation/AppNavigation.tsx`
 - [ ] T103 [US4] Add shared placeholder copy constants for Torneos in `components/navigation/torneos-copy.ts`
 
@@ -203,7 +211,10 @@
 - [ ] T106 Add Playwright no-horizontal-scroll checks for Player routes at 320px in `tests/e2e/player-responsive.spec.ts`
 - [ ] T107 Add Playwright no-horizontal-scroll checks for admin routes at 320px in `tests/e2e/admin-responsive.spec.ts`
 - [ ] T108 Add touch-target and form usability checks for key actions in `tests/e2e/touch-friendly.spec.ts`
-- [ ] T109 Review loading, empty, validation, authorization, and error states for Spanish copy in `components/ui/StateMessage.tsx`
+- [ ] T109 Review loading, empty, validation, authorization, and error states for Spanish copy in `components/states/StateMessage.tsx`
+- [ ] T135 Add Playwright checks that admin lists render as tables on desktop and cards on 320px mobile in `tests/e2e/admin-responsive-lists.spec.ts`
+- [ ] T136 Add Playwright checks for consistent Spanish payment badge labels and visibility in Player and admin routes in `tests/e2e/payment-badges.spec.ts`
+- [ ] T137 Create shared Spanish state components for loading, empty, error, conflict, authorization, and success states in `components/states/StateMessage.tsx`
 
 ## Phase 10: Tests
 
@@ -237,6 +248,7 @@
 - [ ] T125 Verify Torneos remains placeholder-only with no tournament model, migration, action, or admin route in `prisma/schema.prisma`, `lib/actions/`, and `app/admin/`
 - [ ] T126 Run lint, typecheck, unit, integration, and e2e commands and record results in `specs/001-wally-mvp/validation-results.md`
 - [ ] T127 Update implementation notes and known MVP limitations in `README.md`
+- [ ] T138 Verify no Figma files, design imports, i18n setup, locale routing, or language switcher were added in `app/`, `components/`, `lib/`, and repository root configuration files
 
 ## Dependencies & Execution Order
 
@@ -272,15 +284,19 @@
 
 ## Parallel Opportunities
 
-- Phase 1 config tasks T002-T005 can run in parallel after T001.
+- Phase 1 config tasks T002-T005 and UI setup tasks T128-T132 can run in
+  parallel after T001.
 - Phase 2 model tasks T015-T020 can be drafted in parallel before migration generation.
 - Phase 3 auth pages T031-T032 can run in parallel with auth helper tests T035-T036 after T028-T030.
 - Phase 4 time, schedule, availability, court, and audit helpers T037-T041 can run in parallel.
-- US1 component tasks T056-T058 can run in parallel with service work T052-T054 after schemas T051.
+- US1 component tasks T056-T058 and T133 can run in parallel with service work
+  T052-T054 after schemas T051.
 - US2 component tasks T074-T075 can run in parallel with payment data work T069-T071.
-- US3 admin component tasks T087-T092 can run in parallel after admin contracts and validations are established.
+- US3 admin component tasks T087-T092 and T134 can run in parallel after admin
+  contracts and validations are established.
 - US4 tasks T101-T103 can run in parallel after shared navigation conventions exist.
-- Phase 9 Playwright validation tasks T104-T108 can run in parallel once routes exist.
+- Phase 9 Playwright validation tasks T104-T108 and T135-T137 can run in
+  parallel once routes exist.
 - Phase 11 deployment documentation tasks T117-T121 can run in parallel after environment names are settled.
 
 ## Parallel Example: User Story 1
@@ -290,6 +306,7 @@ Task: "T047 [P] [US1] Add integration tests for available slot listing in tests/
 Task: "T048 [P] [US1] Add integration tests for reservation creation and conflict rejection in tests/integration/reservations/create-reservation.test.ts"
 Task: "T056 [P] [US1] Create reusable court selector and date selector components in components/reservations/CourtDateSelector.tsx"
 Task: "T057 [P] [US1] Create reusable available slot picker component in components/reservations/SlotPicker.tsx"
+Task: "T133 [P] [US1] Create mobile-first court card component with clear Spanish primary action in components/reservations/CourtCard.tsx"
 ```
 
 ## Parallel Example: User Story 2
@@ -308,6 +325,7 @@ Task: "T077 [P] [US3] Add integration tests for admin court management authoriza
 Task: "T078 [P] [US3] Add integration tests for admin schedule and availability changes in tests/integration/admin/availability.test.ts"
 Task: "T088 [P] [US3] Create court management form component in components/admin/CourtForm.tsx"
 Task: "T090 [P] [US3] Create availability override form component in components/admin/AvailabilityOverrideForm.tsx"
+Task: "T134 [P] [US3] Create reusable responsive admin table/card pattern for desktop tables and mobile cards in components/admin/ResponsiveAdminList.tsx"
 ```
 
 ## Parallel Example: User Story 4
@@ -315,7 +333,7 @@ Task: "T090 [P] [US3] Create availability override form component in components/
 ```bash
 Task: "T099 [P] [US4] Add Playwright test for the Torneos placeholder content and absence of tournament controls in tests/e2e/torneos-placeholder.spec.ts"
 Task: "T100 [P] [US4] Add static guard test that no tournament models, actions, or admin routes exist in tests/unit/scope/no-tournament-functionality.test.ts"
-Task: "T101 [US4] Create the Spanish Torneos Próximamente page in app/torneos/page.tsx"
+Task: "T101 [US4] Create the polished Spanish Torneos Próximamente page using shared shadcn/ui layout patterns and no tournament actions in app/torneos/page.tsx"
 ```
 
 ## Implementation Strategy
@@ -348,6 +366,9 @@ After Phase 4, split by story and layer:
 
 - Do not implement tournament creation, team registration, fixtures, standings, results, rankings, or tournament admin tools.
 - Do not add i18n, translation frameworks, locale route segments, language switching, or English UI.
+- Do not use Figma or make design files a dependency for MVP delivery.
+- Use Tailwind CSS, shadcn/ui components, and lucide-react icons for the shared professional mobile-first UI.
 - Preserve mobile-first layouts from 320px with no horizontal scrolling.
+- Use desktop tables and mobile cards for admin list views.
 - Every reservation and payment state change must write an audit record.
 - Every protected operation must validate session and role on the server.

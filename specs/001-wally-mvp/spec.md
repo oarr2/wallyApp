@@ -33,6 +33,10 @@ upcoming reservation with payment status `Pending`.
 3. **Given** no slots are available for a selected date, **When** a Player opens
    the availability view, **Then** the app displays a Spanish empty state that
    explains no times are available.
+4. **Given** a Player browses courts or reservations on a mobile screen,
+   **When** they scan the page, **Then** court and reservation information is
+   presented in clean card-based views with clear primary actions, Spanish copy,
+   consistent spacing, and payment status badges where relevant.
 
 ---
 
@@ -60,6 +64,9 @@ fallback messaging for failed or refunded payments.
 3. **Given** an administrator reviews payment history, **When** they filter or
    inspect reservations, **Then** they can see payment status history for each
    reservation they are permitted to manage.
+4. **Given** a payment status is shown in a list, detail view, or admin review,
+   **When** the user reads it, **Then** the app displays a consistent Spanish
+   badge treatment for `Pendiente`, `Pagado`, `Fallido`, or `Reembolsado`.
 
 ---
 
@@ -87,6 +94,12 @@ without exposing unavailable actions to Players.
 3. **Given** a Player cancels within allowed venue rules, **When** the
    cancellation is confirmed, **Then** the reservation no longer appears as active
    and the affected slot follows the venue's availability rules.
+4. **Given** a Venue Administrator opens an admin list on desktop, **When** they
+   review courts, reservations, availability, or payments, **Then** the app uses
+   readable tables with filters and clear actions.
+5. **Given** a Venue Administrator opens the same admin views on mobile, **When**
+   they review the same information, **Then** the app uses stacked cards instead
+   of cramped tables or horizontal scrolling.
 
 ---
 
@@ -113,6 +126,9 @@ with no tournament creation or management actions.
 3. **Given** a Wally Administrator opens `Torneos`, **When** they view the page,
    **Then** no tournament creation, editing, registration, fixtures, standings,
    results, or rankings management controls are available.
+4. **Given** any user opens `Torneos`, **When** the page renders, **Then** it
+   appears as a polished Spanish `Próximamente` screen using the shared mobile
+   first UI system and no functional tournament forms, tables, or actions.
 
 ### Edge Cases
 
@@ -133,6 +149,11 @@ with no tournament creation or management actions.
   are available for courts, schedules, reservations, and payment review.
 - The app is viewed at 320px width; all primary flows remain usable with
   touch-friendly controls and no horizontal scrolling.
+- A desktop admin table is viewed on a phone-sized screen; the system switches to
+  readable Spanish cards rather than requiring horizontal scroll.
+- A court, reservation, or payment list is loading, empty, or unavailable; the
+  system displays a professional Spanish state with a clear next action when one
+  is available.
 - There are no upcoming reservations for a Player; the app displays a Spanish
   empty state.
 - `Torneos` is opened during MVP; only the placeholder content is shown, and no
@@ -193,6 +214,25 @@ with no tournament creation or management actions.
   data that the current user's role is permitted to view.
 - **FR-027**: The system MUST show clear navigation focused on reservations,
   payments, administration, and the future Torneos module.
+- **FR-028**: The MVP UI MUST use Tailwind CSS for styling, shadcn/ui components
+  for shared UI primitives, and lucide-react icons for recognizable actions and
+  navigation.
+- **FR-029**: The UI MUST follow a clean sports booking direction that is
+  professional, simple, mobile-first from 320px, and Spanish-only.
+- **FR-030**: The UI MUST use consistent spacing, cards, buttons, forms, badges,
+  tabs, dialogs, sheets, and tables across Player and administrator views.
+- **FR-031**: Player court browsing, slot selection, upcoming reservations, and
+  reservation detail views MUST use card-based layouts with clear primary
+  actions.
+- **FR-032**: Administrator list views MUST use readable tables on desktop and
+  card-based layouts on mobile without horizontal scrolling.
+- **FR-033**: Payment status MUST be represented with consistent Spanish badges
+  in reservation cards, reservation detail, admin reservation views, and payment
+  history.
+- **FR-034**: The system MUST provide polished Spanish loading, empty, and error
+  states for courts, reservations, payments, admin views, and Torneos.
+- **FR-035**: The MVP MUST NOT use Figma as a source of truth or delivery
+  dependency for UI implementation.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -233,6 +273,12 @@ with no tournament creation or management actions.
   and exposes zero tournament management actions.
 - **SC-009**: Payment history for a reservation can be reviewed by an authorized
   administrator in under 1 minute during acceptance testing.
+- **SC-010**: Primary Player and administrator screens use the shared Tailwind
+  and shadcn/ui component direction consistently in UI review.
+- **SC-011**: Admin reservation and payment lists are readable as tables on
+  desktop and as cards on 320px mobile screens with no horizontal scrolling.
+- **SC-012**: All payment statuses render with the approved Spanish badge labels
+  and distinguishable visual treatments wherever they appear.
 
 ## Assumptions
 
@@ -251,3 +297,5 @@ with no tournament creation or management actions.
   placeholder entry point for future releases.
 - Push notifications, marketplace behavior, player rankings, multi-language
   support, and English UI are excluded from MVP scope.
+- UI implementation will be code-driven with Tailwind CSS, shadcn/ui, and
+  lucide-react; no Figma handoff or i18n infrastructure is required for MVP.
