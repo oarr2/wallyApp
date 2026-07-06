@@ -421,15 +421,21 @@ See [contracts/routes.md](./contracts/routes.md) and
   detail, `Administración` for admins, and `Torneos`.
 - Tailwind CSS design system defines shared tokens/components for buttons,
   inputs, status badges, cards, list rows, alerts, modals, and admin filters.
-- The visual direction is a clean sports booking product: professional, simple,
-  high-contrast enough for outdoor/mobile use, and focused on fast reservation
-  decisions rather than marketing content.
+- The selected visual direction is the modern sports app option: dark
+  navy/black backgrounds, neon green primary actions, strong card-based layouts,
+  sports-oriented lucide-react icons, professional spacing, and high contrast
+  for quick mobile decisions.
 - Primary actions use one clear button per decision area, with secondary or
   destructive actions visually subordinate and confirmed through dialogs or
   sheets when needed.
 - Court browsing, slot selection, upcoming reservations, and reservation details
   use card-based layouts with concise Spanish labels, date/time prominence, court
   identity, and payment state visibility.
+- The Player home or main availability dashboard includes a prominent
+  `Torneos` / `Próximamente` card visible without first opening navigation. Copy
+  should clearly state: `Muy pronto podrás inscribir equipos, ver fixtures,
+  posiciones y resultados.` The CTA is placeholder-only, such as
+  `Ver próximamente` or `Quiero participar`.
 - Admin courts, schedules, availability, reservations, and payment history use
   readable tables on desktop and stacked cards on mobile, preserving filters and
   row actions without horizontal scroll.
@@ -439,7 +445,9 @@ See [contracts/routes.md](./contracts/routes.md) and
   `Pendiente`, `Pagado`, `Fallido`, `Reembolsado`.
 - `Torneos` is a polished `Próximamente` screen using the same navigation,
   spacing, icon, card, and state patterns, but it must not include tournament
-  forms, tables, admin controls, or functional calls to action.
+  forms, tables, admin controls, payments, or functional calls to action. The
+  home/dashboard card is also placeholder-only and must not start tournament
+  registration, fixture, standings, results, or payment workflows.
 
 ## Responsive Behavior From 320px
 

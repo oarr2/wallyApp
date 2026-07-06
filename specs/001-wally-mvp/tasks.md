@@ -119,6 +119,7 @@
 - [ ] T057 [P] [US1] Create reusable available slot picker component in `components/reservations/SlotPicker.tsx`
 - [ ] T058 [P] [US1] Create card-based reservation component using shadcn/ui Card, Button, and Spanish payment status badge in `components/reservations/ReservationCard.tsx`
 - [ ] T133 [P] [US1] Create mobile-first court card component with clear Spanish primary action in `components/reservations/CourtCard.tsx`
+- [ ] T139 [P] [US1] Create prominent modern sports-style Torneos `Próximamente` home card with neon green placeholder CTA and no tournament logic in `components/reservations/HomeTorneosCard.tsx`
 - [ ] T059 [US1] Create `/reservar` Player page with Spanish loading, empty, conflict, and success states in `app/(player)/reservar/page.tsx`
 - [ ] T060 [US1] Create `/reservas` Player upcoming reservations page with Spanish empty state in `app/(player)/reservas/page.tsx`
 - [ ] T061 [US1] Create `/reservas/[reservationId]` Player reservation detail page with cancellation affordance in `app/(player)/reservas/[reservationId]/page.tsx`
@@ -194,6 +195,7 @@
 ### Tests for User Story 4
 
 - [ ] T099 [P] [US4] Add Playwright test for the Torneos placeholder content and absence of tournament controls in `tests/e2e/torneos-placeholder.spec.ts`
+- [ ] T140 [P] [US4] Add Playwright test that the home or main availability dashboard shows the Torneos `Próximamente` card at 320px before navigation in `tests/e2e/home-torneos-card.spec.ts`
 - [ ] T100 [P] [US4] Add static guard test that no tournament models, actions, or admin routes exist in `tests/unit/scope/no-tournament-functionality.test.ts`
 
 ### Implementation for User Story 4
@@ -201,6 +203,7 @@
 - [ ] T101 [US4] Create the polished Spanish Torneos `Próximamente` page using shared shadcn/ui layout patterns and no tournament actions in `app/torneos/page.tsx`
 - [ ] T102 [US4] Add the Torneos navigation item without admin tournament controls in `components/navigation/AppNavigation.tsx`
 - [ ] T103 [US4] Add shared placeholder copy constants for Torneos in `components/navigation/torneos-copy.ts`
+- [ ] T141 [US4] Reuse Torneos placeholder copy in the home card and ensure CTA text remains non-functional placeholder copy in `components/reservations/HomeTorneosCard.tsx`
 
 ## Phase 9: Responsive Spanish-Only Validation
 
@@ -367,8 +370,9 @@ After Phase 4, split by story and layer:
 - Do not implement tournament creation, team registration, fixtures, standings, results, rankings, or tournament admin tools.
 - Do not add i18n, translation frameworks, locale route segments, language switching, or English UI.
 - Do not use Figma or make design files a dependency for MVP delivery.
-- Use Tailwind CSS, shadcn/ui components, and lucide-react icons for the shared professional mobile-first UI.
+- Use Tailwind CSS, shadcn/ui components, and lucide-react icons for the selected modern sports-app UI: dark navy/black surfaces, neon green primary actions, strong cards, sports-oriented icons, and professional spacing.
 - Preserve mobile-first layouts from 320px with no horizontal scrolling.
+- Show Torneos as a visible `Próximamente` card on the home/main availability screen, not only in navigation.
 - Use desktop tables and mobile cards for admin list views.
 - Every reservation and payment state change must write an audit record.
 - Every protected operation must validate session and role on the server.

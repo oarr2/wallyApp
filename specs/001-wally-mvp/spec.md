@@ -218,7 +218,10 @@ with no tournament creation or management actions.
   for shared UI primitives, and lucide-react icons for recognizable actions and
   navigation.
 - **FR-029**: The UI MUST follow a clean sports booking direction that is
-  professional, simple, mobile-first from 320px, and Spanish-only.
+  professional, simple, mobile-first from 320px, and Spanish-only. The selected
+  direction is a modern sports app with dark navy/black backgrounds, neon green
+  primary actions, strong card-based layouts, sports-oriented icons, and
+  professional spacing.
 - **FR-030**: The UI MUST use consistent spacing, cards, buttons, forms, badges,
   tabs, dialogs, sheets, and tables across Player and administrator views.
 - **FR-031**: Player court browsing, slot selection, upcoming reservations, and
@@ -233,6 +236,13 @@ with no tournament creation or management actions.
   states for courts, reservations, payments, admin views, and Torneos.
 - **FR-035**: The MVP MUST NOT use Figma as a source of truth or delivery
   dependency for UI implementation.
+- **FR-036**: The Player home or main availability dashboard MUST show a
+  prominent `Torneos` / `Próximamente` card before the user navigates elsewhere,
+  with Spanish copy that clearly states tournaments are coming soon and includes
+  only a placeholder CTA such as `Ver próximamente` or `Quiero participar`.
+- **FR-037**: The home `Torneos` card MUST NOT create, register, list, manage,
+  charge for, or otherwise operate tournaments, fixtures, standings, results, or
+  tournament payments during MVP.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -248,8 +258,9 @@ with no tournament creation or management actions.
   Administrator.
 - **Audit Record**: Reviewable record of reservation or payment state changes,
   including actor, timestamp, before/after status, and reason when applicable.
-- **Tournament Placeholder**: Spanish `Próximamente` page reached from `Torneos`
-  navigation during the MVP.
+- **Tournament Placeholder**: Spanish `Próximamente` page and home/dashboard
+  card reached from `Torneos` navigation or visible on the main screen during the
+  MVP.
 
 ## Success Criteria *(mandatory)*
 
@@ -279,6 +290,9 @@ with no tournament creation or management actions.
   desktop and as cards on 320px mobile screens with no horizontal scrolling.
 - **SC-012**: All payment statuses render with the approved Spanish badge labels
   and distinguishable visual treatments wherever they appear.
+- **SC-013**: The main home or availability dashboard shows a visible
+  `Torneos` / `Próximamente` placeholder card at 320px width without requiring
+  navigation first.
 
 ## Assumptions
 
@@ -294,7 +308,8 @@ with no tournament creation or management actions.
   but the MVP must consistently store and show reservation payment status and
   history.
 - Tournament management remains out of scope for the MVP; `Torneos` is only a
-  placeholder entry point for future releases.
+  placeholder entry point for future releases and may be promoted on the home
+  screen as a non-functional coming-soon card.
 - Push notifications, marketplace behavior, player rankings, multi-language
   support, and English UI are excluded from MVP scope.
 - UI implementation will be code-driven with Tailwind CSS, shadcn/ui, and
