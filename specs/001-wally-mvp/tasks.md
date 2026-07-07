@@ -28,13 +28,13 @@
 
 **Purpose**: Scaffold the Next.js TypeScript application and shared project tooling.
 
-- [ ] T001 Initialize the Next.js TypeScript project metadata and scripts in `package.json`
-- [ ] T002 Add TypeScript compiler settings for the App Router project in `tsconfig.json`
-- [ ] T003 Add Next.js runtime configuration in `next.config.ts`
-- [ ] T004 Add Tailwind CSS and PostCSS configuration in `tailwind.config.ts` and `postcss.config.mjs`
-- [ ] T005 Create global Spanish-first Tailwind app styles, design tokens, and responsive base rules in `app/globals.css`
-- [ ] T006 Create the root App Router layout shell in `app/layout.tsx`
-- [ ] T007 Create the authenticated-aware home route placeholder in `app/page.tsx`
+- [X] T001 Initialize the Next.js TypeScript project metadata and scripts in `package.json`
+- [X] T002 Add TypeScript compiler settings for the App Router project in `tsconfig.json`
+- [X] T003 Add Next.js runtime configuration in `next.config.ts`
+- [X] T004 Add Tailwind CSS and PostCSS configuration in `tailwind.config.ts` and `postcss.config.mjs`
+- [X] T005 Create global Spanish-first Tailwind app styles, design tokens, and responsive base rules in `app/globals.css`
+- [X] T006 Create the root App Router layout shell in `app/layout.tsx`
+- [X] T007 Create the authenticated-aware home route placeholder in `app/page.tsx`
 - [ ] T008 Create the planned source directory structure with placeholder index files in `components/ui/index.ts`, `components/navigation/index.ts`, `components/reservations/index.ts`, `components/payments/index.ts`, `components/admin/index.ts`, `components/states/index.ts`, `lib/actions/index.ts`, `lib/auth/index.ts`, `lib/data/index.ts`, `lib/validation/index.ts`, and `lib/time/index.ts`
 - [ ] T009 Configure ESLint for TypeScript and Next.js rules in `eslint.config.mjs`
 - [ ] T010 Configure Vitest for unit and integration tests in `vitest.config.ts`
