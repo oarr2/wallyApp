@@ -35,12 +35,12 @@
 - [X] T005 Create global Spanish-first Tailwind app styles, design tokens, and responsive base rules in `app/globals.css`
 - [X] T006 Create the root App Router layout shell in `app/layout.tsx`
 - [X] T007 Create the authenticated-aware home route placeholder in `app/page.tsx`
-- [ ] T008 Create the planned source directory structure with placeholder index files in `components/ui/index.ts`, `components/navigation/index.ts`, `components/reservations/index.ts`, `components/payments/index.ts`, `components/admin/index.ts`, `components/states/index.ts`, `lib/actions/index.ts`, `lib/auth/index.ts`, `lib/data/index.ts`, `lib/validation/index.ts`, and `lib/time/index.ts`
-- [ ] T009 Configure ESLint for TypeScript and Next.js rules in `eslint.config.mjs`
-- [ ] T010 Configure Vitest for unit and integration tests in `vitest.config.ts`
-- [ ] T011 Configure Playwright projects for 320px, 375px, 768px, and desktop viewports in `playwright.config.ts`
-- [ ] T012 Add local environment variable documentation without secrets in `.env.example`
-- [ ] T013 Add a Spanish-only UI guard note and MVP constraints to `README.md`
+- [X] T008 Create the planned source directory structure with placeholder index files in `components/ui/index.ts`, `components/navigation/index.ts`, `components/reservations/index.ts`, `components/payments/index.ts`, `components/admin/index.ts`, `components/states/index.ts`, `lib/actions/index.ts`, `lib/auth/index.ts`, `lib/data/index.ts`, `lib/validation/index.ts`, and `lib/time/index.ts`
+- [X] T009 Configure ESLint for TypeScript and Next.js rules in `eslint.config.mjs`
+- [X] T010 Configure Vitest for unit and integration tests in `vitest.config.ts`
+- [X] T011 Configure Playwright projects for 320px, 375px, 768px, and desktop viewports in `playwright.config.ts`
+- [X] T012 Add local environment variable documentation without secrets in `.env.example`
+- [X] T013 Add a Spanish-only UI guard note and MVP constraints to `README.md`
 - [ ] T128 Add shadcn/ui configuration for Tailwind aliases and component generation in `components.json`
 - [ ] T129 Add lucide-react and required shadcn/ui package dependencies to `package.json`
 - [ ] T130 Create initial shadcn/ui primitives for `button`, `card`, `input`, `label`, `select`, `badge`, `tabs`, `dialog`, `sheet`, `table`, `skeleton`, and `alert` in `components/ui/`
