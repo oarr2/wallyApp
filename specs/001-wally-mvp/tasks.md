@@ -41,11 +41,11 @@
 - [X] T011 Configure Playwright projects for 320px, 375px, 768px, and desktop viewports in `playwright.config.ts`
 - [X] T012 Add local environment variable documentation without secrets in `.env.example`
 - [X] T013 Add a Spanish-only UI guard note and MVP constraints to `README.md`
-- [ ] T128 Add shadcn/ui configuration for Tailwind aliases and component generation in `components.json`
-- [ ] T129 Add lucide-react and required shadcn/ui package dependencies to `package.json`
-- [ ] T130 Create initial shadcn/ui primitives for `button`, `card`, `input`, `label`, `select`, `badge`, `tabs`, `dialog`, `sheet`, `table`, `skeleton`, and `alert` in `components/ui/`
-- [ ] T131 Create shared utility helpers for class merging and UI variants in `lib/utils.ts`
-- [ ] T132 Document the professional mobile-first UI direction, no-Figma constraint, and no-i18n constraint in `README.md`
+- [X] T128 Add shadcn/ui configuration for Tailwind aliases and component generation in `components.json`
+- [X] T129 Add lucide-react and required shadcn/ui package dependencies to `package.json`
+- [X] T130 Create initial shadcn/ui primitives for `button`, `card`, `input`, `label`, `select`, `badge`, `tabs`, `dialog`, `sheet`, `table`, `skeleton`, and `alert` in `components/ui/`
+- [X] T131 Create shared utility helpers for class merging and UI variants in `lib/utils.ts`
+- [X] T132 Document the professional mobile-first UI direction, no-Figma constraint, and no-i18n constraint in `README.md`
 
 ## Phase 2: Supabase and Prisma Setup
 

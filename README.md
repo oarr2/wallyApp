@@ -32,3 +32,14 @@ Prisma.
 - Figma no es fuente de verdad ni dependencia de entrega para este MVP; la
   implementación debe reutilizar Tailwind CSS, shadcn/ui y los componentes
   existentes del repositorio.
+
+## Dirección de interfaz
+
+La interfaz debe sentirse como una app deportiva profesional, simple y rápida:
+mobile-first desde 320px, sin desplazamiento horizontal, con fondo oscuro
+negro/azul, tarjetas sólidas, acentos verde neón, botones táctiles, badges de
+estado consistentes, tablas legibles en escritorio y tarjetas apiladas en móvil.
+
+El sistema visual se implementa directamente con Tailwind CSS, shadcn/ui,
+lucide-react y los tokens de `app/globals.css`. No se debe agregar Figma,
+infraestructura i18n, locale routing ni selector de idioma durante el MVP.
