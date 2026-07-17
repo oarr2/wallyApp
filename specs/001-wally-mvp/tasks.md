@@ -58,11 +58,11 @@
 - [X] T018 Define `ScheduleRule` and `AvailabilityOverride` models with local date/time fields in `prisma/schema.prisma`
 - [X] T019 Define `Reservation` with UTC instants, La Paz local fields, status, payment status, cancellation fields, and indexes in `prisma/schema.prisma`
 - [X] T020 Define `Payment`, `PaymentEvent`, and `AuditRecord` models with idempotency and audit fields in `prisma/schema.prisma`
-- [ ] T021 Add PostgreSQL overlap protection for active reservation court time windows in `prisma/migrations/001_reservation_overlap_guard/migration.sql`
-- [ ] T022 Add the Prisma client singleton in `lib/data/prisma.ts`
-- [ ] T023 Add Supabase browser and server client helpers in `lib/auth/supabase.ts`
-- [ ] T024 Add environment validation for Supabase, Prisma, and Vercel variables in `lib/validation/env.ts`
-- [ ] T025 Add an environment check script in `scripts/env-check.ts`
+- [X] T021 Add PostgreSQL overlap protection for active reservation court time windows in `prisma/migrations/001_reservation_overlap_guard/migration.sql`
+- [X] T022 Add the Prisma client singleton in `lib/data/prisma.ts`
+- [X] T023 Add Supabase browser and server client helpers in `lib/auth/supabase.ts`
+- [X] T024 Add environment validation for Supabase, Prisma, and Vercel variables in `lib/validation/env.ts`
+- [X] T025 Add an environment check script in `scripts/env-check.ts`
 - [ ] T026 Add MVP seed data for one venue, two courts, wally sport, court-sport assignments, schedules, and admin profiles in `prisma/seed.ts`
 - [ ] T027 Add database setup scripts for generate, migrate, and seed commands in `package.json`
 
