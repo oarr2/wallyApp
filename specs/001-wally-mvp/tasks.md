@@ -51,13 +51,13 @@
 
 **Purpose**: Establish Supabase PostgreSQL, Prisma schema, migrations, seed data, and data access foundations.
 
-- [ ] T014 Add Prisma datasource and generator configuration in `prisma/schema.prisma`
-- [ ] T015 Define `UserRole`, `ReservationStatus`, `PaymentStatus`, and `AuditEntityType` enums in `prisma/schema.prisma`
-- [ ] T016 Define `Venue` and `UserProfile` models with role and venue-scope constraints in `prisma/schema.prisma`
-- [ ] T017 Define `Court`, `Sport`, and `CourtSport` models with active flags and uniqueness constraints in `prisma/schema.prisma`
-- [ ] T018 Define `ScheduleRule` and `AvailabilityOverride` models with local date/time fields in `prisma/schema.prisma`
-- [ ] T019 Define `Reservation` with UTC instants, La Paz local fields, status, payment status, cancellation fields, and indexes in `prisma/schema.prisma`
-- [ ] T020 Define `Payment`, `PaymentEvent`, and `AuditRecord` models with idempotency and audit fields in `prisma/schema.prisma`
+- [X] T014 Add Prisma datasource and generator configuration in `prisma/schema.prisma`
+- [X] T015 Define `UserRole`, `ReservationStatus`, `PaymentStatus`, and `AuditEntityType` enums in `prisma/schema.prisma`
+- [X] T016 Define `Venue` and `UserProfile` models with role and venue-scope constraints in `prisma/schema.prisma`
+- [X] T017 Define `Court`, `Sport`, and `CourtSport` models with active flags and uniqueness constraints in `prisma/schema.prisma`
+- [X] T018 Define `ScheduleRule` and `AvailabilityOverride` models with local date/time fields in `prisma/schema.prisma`
+- [X] T019 Define `Reservation` with UTC instants, La Paz local fields, status, payment status, cancellation fields, and indexes in `prisma/schema.prisma`
+- [X] T020 Define `Payment`, `PaymentEvent`, and `AuditRecord` models with idempotency and audit fields in `prisma/schema.prisma`
 - [ ] T021 Add PostgreSQL overlap protection for active reservation court time windows in `prisma/migrations/001_reservation_overlap_guard/migration.sql`
 - [ ] T022 Add the Prisma client singleton in `lib/data/prisma.ts`
 - [ ] T023 Add Supabase browser and server client helpers in `lib/auth/supabase.ts`

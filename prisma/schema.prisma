@@ -1,0 +1,288 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  PLAYER
+  VENUE_ADMIN
+  WALLY_ADMIN
+}
+
+enum ReservationStatus {
+  CONFIRMED
+  CANCELLED
+  EXPIRED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum AuditEntityType {
+  USER_PROFILE
+  COURT
+  SPORT
+  SCHEDULE_RULE
+  AVAILABILITY_OVERRIDE
+  RESERVATION
+  PAYMENT
+}
+
+enum AvailabilityOverrideType {
+  BLOCKED
+  CLOSED_DAY
+  OPEN_EXTRA
+}
+
+enum PaymentSource {
+  MANUAL
+  EVENT
+  SYSTEM
+}
+
+enum PaymentEventStatus {
+  RECEIVED
+  PROCESSED
+  IGNORED
+  FAILED
+}
+
+enum AuditSource {
+  USER
+  PAYMENT_EVENT
+  SYSTEM
+}
+
+model Venue {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  timezone  String   @default("America/La_Paz")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  courts       Court[]
+  userProfiles UserProfile[]
+
+  @@unique([name])
+}
+
+model UserProfile {
+  id          String   @id @default(uuid()) @db.Uuid
+  authUserId  String   @unique @db.Uuid
+  role        UserRole @default(PLAYER)
+  venueId     String?  @db.Uuid
+  displayName String
+  phone       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  venue                        Venue?                 @relation(fields: [venueId], references: [id], onDelete: Restrict)
+  reservations                 Reservation[]          @relation("PlayerReservations")
+  cancelledReservations        Reservation[]          @relation("CancelledReservations")
+  createdAvailabilityOverrides AvailabilityOverride[] @relation("AvailabilityOverrideCreator")
+  paymentsCreated              Payment[]              @relation("PaymentCreator")
+  auditRecordsAsActor          AuditRecord[]          @relation("AuditActor")
+
+  @@index([role, venueId])
+}
+
+model Court {
+  id           String   @id @default(uuid()) @db.Uuid
+  venueId      String   @db.Uuid
+  name         String
+  description  String?
+  isActive     Boolean  @default(true)
+  displayOrder Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  venue                 Venue                  @relation(fields: [venueId], references: [id], onDelete: Restrict)
+  courtSports           CourtSport[]
+  scheduleRules         ScheduleRule[]
+  availabilityOverrides AvailabilityOverride[]
+  reservations          Reservation[]
+  auditRecords          AuditRecord[]          @relation("CourtAuditRecords")
+
+  @@unique([venueId, name])
+  @@unique([venueId, displayOrder])
+  @@index([venueId, isActive, displayOrder])
+}
+
+model Sport {
+  id       String  @id @default(uuid()) @db.Uuid
+  code     String  @unique
+  name     String
+  isActive Boolean @default(true)
+
+  courtSports  CourtSport[]
+  reservations Reservation[]
+  auditRecords AuditRecord[] @relation("SportAuditRecords")
+
+  @@index([isActive])
+}
+
+model CourtSport {
+  courtId  String  @db.Uuid
+  sportId  String  @db.Uuid
+  isActive Boolean @default(true)
+
+  court Court @relation(fields: [courtId], references: [id], onDelete: Cascade)
+  sport Sport @relation(fields: [sportId], references: [id], onDelete: Restrict)
+
+  @@id([courtId, sportId])
+  @@index([sportId, isActive])
+}
+
+model ScheduleRule {
+  id                        String   @id @default(uuid()) @db.Uuid
+  courtId                   String   @db.Uuid
+  dayOfWeek                 Int
+  startLocalTime            DateTime @db.Time(0)
+  endLocalTime              DateTime @db.Time(0)
+  slotMinutes               Int
+  cancellationCutoffMinutes Int
+  isActive                  Boolean  @default(true)
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+
+  court        Court         @relation(fields: [courtId], references: [id], onDelete: Cascade)
+  auditRecords AuditRecord[] @relation("ScheduleRuleAuditRecords")
+
+  @@unique([courtId, dayOfWeek, startLocalTime, endLocalTime])
+  @@index([courtId, dayOfWeek, isActive])
+}
+
+model AvailabilityOverride {
+  id              String                   @id @default(uuid()) @db.Uuid
+  courtId         String                   @db.Uuid
+  localDate       DateTime                 @db.Date
+  startLocalTime  DateTime?                @db.Time(0)
+  endLocalTime    DateTime?                @db.Time(0)
+  type            AvailabilityOverrideType
+  reason          String?
+  createdByUserId String                   @db.Uuid
+  createdAt       DateTime                 @default(now())
+  updatedAt       DateTime                 @updatedAt
+
+  court         Court         @relation(fields: [courtId], references: [id], onDelete: Cascade)
+  createdByUser UserProfile   @relation("AvailabilityOverrideCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  auditRecords  AuditRecord[] @relation("AvailabilityOverrideAuditRecords")
+
+  @@index([courtId, localDate, type])
+  @@index([createdByUserId])
+}
+
+model Reservation {
+  id                 String            @id @default(uuid()) @db.Uuid
+  playerId           String            @db.Uuid
+  courtId            String            @db.Uuid
+  sportId            String            @db.Uuid
+  localDate          DateTime          @db.Date
+  startAtUtc         DateTime
+  endAtUtc           DateTime
+  startLocalTime     DateTime          @db.Time(0)
+  endLocalTime       DateTime          @db.Time(0)
+  status             ReservationStatus @default(CONFIRMED)
+  paymentStatus      PaymentStatus     @default(PENDING)
+  cancelledAt        DateTime?
+  cancelledByUserId  String?           @db.Uuid
+  cancellationReason String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  player          UserProfile    @relation("PlayerReservations", fields: [playerId], references: [id], onDelete: Restrict)
+  court           Court          @relation(fields: [courtId], references: [id], onDelete: Restrict)
+  sport           Sport          @relation(fields: [sportId], references: [id], onDelete: Restrict)
+  cancelledByUser UserProfile?   @relation("CancelledReservations", fields: [cancelledByUserId], references: [id], onDelete: Restrict)
+  payments        Payment[]
+  paymentEvents   PaymentEvent[]
+  auditRecords    AuditRecord[]  @relation("ReservationAuditRecords")
+
+  @@index([playerId, status, startAtUtc])
+  @@index([courtId, status, startAtUtc, endAtUtc])
+  @@index([courtId, localDate, startLocalTime])
+  @@index([sportId, localDate])
+  @@index([paymentStatus])
+}
+
+model Payment {
+  id              String        @id @default(uuid()) @db.Uuid
+  reservationId   String        @db.Uuid
+  status          PaymentStatus
+  amount          Decimal?      @db.Decimal(10, 2)
+  currency        String        @default("BOB")
+  source          PaymentSource
+  sourceReference String?
+  reason          String?
+  createdByUserId String?       @db.Uuid
+  createdAt       DateTime      @default(now())
+
+  reservation   Reservation   @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  createdByUser UserProfile?  @relation("PaymentCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  auditRecords  AuditRecord[] @relation("PaymentAuditRecords")
+
+  @@index([reservationId, createdAt])
+  @@index([status, createdAt])
+  @@index([source, sourceReference])
+}
+
+model PaymentEvent {
+  id             String             @id @default(uuid()) @db.Uuid
+  source         String
+  sourceEventId  String
+  reservationId  String?            @db.Uuid
+  receivedAt     DateTime           @default(now())
+  processedAt    DateTime?
+  status         PaymentEventStatus @default(RECEIVED)
+  payloadSummary Json
+
+  reservation Reservation? @relation(fields: [reservationId], references: [id], onDelete: SetNull)
+
+  @@unique([source, sourceEventId])
+  @@index([reservationId])
+  @@index([status, receivedAt])
+}
+
+model AuditRecord {
+  id                     String          @id @default(uuid()) @db.Uuid
+  entityType             AuditEntityType
+  entityId               String          @db.Uuid
+  action                 String
+  actorUserId            String?         @db.Uuid
+  actorRole              UserRole?
+  source                 AuditSource
+  beforeState            Json?
+  afterState             Json?
+  reason                 String?
+  requestId              String?
+  reservationId          String?         @db.Uuid
+  paymentId              String?         @db.Uuid
+  courtId                String?         @db.Uuid
+  sportId                String?         @db.Uuid
+  scheduleRuleId         String?         @db.Uuid
+  availabilityOverrideId String?         @db.Uuid
+  createdAt              DateTime        @default(now())
+
+  actor                UserProfile?          @relation("AuditActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+  reservation          Reservation?          @relation("ReservationAuditRecords", fields: [reservationId], references: [id], onDelete: SetNull)
+  payment              Payment?              @relation("PaymentAuditRecords", fields: [paymentId], references: [id], onDelete: SetNull)
+  court                Court?                @relation("CourtAuditRecords", fields: [courtId], references: [id], onDelete: SetNull)
+  sport                Sport?                @relation("SportAuditRecords", fields: [sportId], references: [id], onDelete: SetNull)
+  scheduleRule         ScheduleRule?         @relation("ScheduleRuleAuditRecords", fields: [scheduleRuleId], references: [id], onDelete: SetNull)
+  availabilityOverride AvailabilityOverride? @relation("AvailabilityOverrideAuditRecords", fields: [availabilityOverrideId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, entityId, createdAt])
+  @@index([actorUserId, createdAt])
+  @@index([reservationId, createdAt])
+  @@index([paymentId, createdAt])
+  @@index([requestId])
+}
