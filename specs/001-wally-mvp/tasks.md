@@ -70,15 +70,15 @@
 
 **Purpose**: Implement session loading and role-based authorization before feature work begins.
 
-- [ ] T028 Create session loading helpers for server components and server actions in `lib/auth/session.ts`
-- [ ] T029 Create role and venue-scope authorization helpers in `lib/auth/authorization.ts`
-- [ ] T030 Create protected-route middleware for authenticated and admin routes in `middleware.ts`
-- [ ] T031 Create Spanish sign-in page UI in `app/(auth)/iniciar-sesion/page.tsx`
-- [ ] T032 Create Spanish registration page UI for Player onboarding in `app/(auth)/registrarse/page.tsx`
-- [ ] T033 Create auth server actions for sign-in, sign-up, and sign-out in `lib/actions/auth.ts`
-- [ ] T034 Create user profile data access helpers in `lib/data/user-profiles.ts`
-- [ ] T035 Add unit tests for role authorization decisions in `tests/unit/auth/authorization.test.ts`
-- [ ] T036 Add integration tests for protected route access by role in `tests/integration/auth/protected-routes.test.ts`
+- [X] T028 Create session loading helpers for server components and server actions in `lib/auth/session.ts`
+- [X] T029 Create role and venue-scope authorization helpers in `lib/auth/authorization.ts`
+- [X] T030 Create protected-route middleware for authenticated and admin routes in `middleware.ts`
+- [X] T031 Create Spanish sign-in page UI in `app/(auth)/iniciar-sesion/page.tsx`
+- [X] T032 Create Spanish registration page UI for Player onboarding in `app/(auth)/registrarse/page.tsx`
+- [X] T033 Create auth server actions for sign-in, sign-up, and sign-out in `lib/actions/auth.ts`
+- [X] T034 Create user profile data access helpers in `lib/data/user-profiles.ts`
+- [X] T035 Add unit tests for role authorization decisions in `tests/unit/auth/authorization.test.ts`
+- [X] T036 Add integration tests for protected route access by role in `tests/integration/auth/protected-routes.test.ts`
 
 ## Phase 4: Court and Availability Data Model
 
