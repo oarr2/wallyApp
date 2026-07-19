@@ -63,8 +63,8 @@
 - [X] T023 Add Supabase browser and server client helpers in `lib/auth/supabase.ts`
 - [X] T024 Add environment validation for Supabase, Prisma, and Vercel variables in `lib/validation/env.ts`
 - [X] T025 Add an environment check script in `scripts/env-check.ts`
-- [ ] T026 Add MVP seed data for one venue, two courts, wally sport, court-sport assignments, schedules, and admin profiles in `prisma/seed.ts`
-- [ ] T027 Add database setup scripts for generate, migrate, and seed commands in `package.json`
+- [X] T026 Add MVP seed data for one venue, two courts, wally sport, court-sport assignments, schedules, and admin profiles in `prisma/seed.ts`
+- [X] T027 Add database setup scripts for generate, migrate, and seed commands in `package.json`
 
 ## Phase 3: Auth and Roles
 
