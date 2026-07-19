@@ -84,16 +84,16 @@
 
 **Purpose**: Implement court, schedule, availability, time, and audit foundations shared by reservation and admin stories.
 
-- [ ] T037 Create La Paz date/time conversion helpers in `lib/time/la-paz.ts`
-- [ ] T038 Create schedule slot generation logic from `ScheduleRule` records in `lib/data/schedules.ts`
-- [ ] T039 Create availability override application logic in `lib/data/availability.ts`
-- [ ] T040 Create court and sport data access helpers in `lib/data/courts.ts`
-- [ ] T041 Create audit record append helper in `lib/data/audit.ts`
-- [ ] T042 Create validation schemas for courts, schedules, availability, and time slots in `lib/validation/admin.ts`
-- [ ] T043 Add unit tests for La Paz time conversion in `tests/unit/time/la-paz.test.ts`
-- [ ] T044 Add unit tests for schedule slot generation in `tests/unit/availability/schedules.test.ts`
-- [ ] T045 Add unit tests for availability overrides in `tests/unit/availability/overrides.test.ts`
-- [ ] T046 Add integration tests for court/sport active filtering in `tests/integration/availability/courts.test.ts`
+- [X] T037 Create La Paz date/time conversion helpers in `lib/time/la-paz.ts`
+- [X] T038 Create schedule slot generation logic from `ScheduleRule` records in `lib/data/schedules.ts`
+- [X] T039 Create availability override application logic in `lib/data/availability.ts`
+- [X] T040 Create court and sport data access helpers in `lib/data/courts.ts`
+- [X] T041 Create audit record append helper in `lib/data/audit.ts`
+- [X] T042 Create validation schemas for courts, schedules, availability, and time slots in `lib/validation/admin.ts`
+- [X] T043 Add unit tests for La Paz time conversion in `tests/unit/time/la-paz.test.ts`
+- [X] T044 Add unit tests for schedule slot generation in `tests/unit/availability/schedules.test.ts`
+- [X] T045 Add unit tests for availability overrides in `tests/unit/availability/overrides.test.ts`
+- [X] T046 Add integration tests for court/sport active filtering in `tests/integration/availability/courts.test.ts`
 
 ## Phase 5: User Story 1 - Reserve a Court (Priority: P1) 🎯 MVP
 
