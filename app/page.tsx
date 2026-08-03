@@ -1,5 +1,6 @@
 import type React from "react";
-import { ArrowRight, CalendarDays, Dumbbell, ShieldCheck, Trophy } from "lucide-react";
+import { ArrowRight, CalendarDays, Dumbbell, ShieldCheck } from "lucide-react";
+import { HomeTorneosCard } from "@/components/reservations";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -18,9 +19,8 @@ export default function HomePage() {
                   Reserva canchas con una experiencia deportiva moderna
                 </h1>
                 <p className="text-sm leading-6 text-slate-300 sm:text-base">
-                  Base visual mobile-first en español para el MVP: fondo oscuro,
-                  tarjetas fuertes, acciones verde neón y torneos anunciados
-                  solo como próximamente.
+                  Busca horarios disponibles, reserva una cancha y revisa tus
+                  próximos turnos con estado de pago pendiente.
                 </p>
               </div>
             </div>
@@ -41,8 +41,8 @@ export default function HomePage() {
                   Buscar disponibilidad
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-slate-300">
-                  Este placeholder prepara la entrada pública y autenticada sin
-                  conectar base de datos, autenticación ni lógica de reservas.
+                  Entra a la experiencia de reservas para elegir cancha, fecha y
+                  horario disponible con confirmación inmediata.
                 </p>
               </div>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-lime-300/30 bg-lime-300/10 text-lime-300">
@@ -52,43 +52,22 @@ export default function HomePage() {
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <Button asChild className="bg-lime-300 text-slate-950 hover:bg-lime-200">
                 <a href="/design-preview">
-                  Ver prototipo visual
+                  Ver estilo visual
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
-              <Button variant="outline" className="bg-white text-slate-950">
-                Próximamente reservas
+              <Button asChild variant="outline" className="bg-white text-slate-950">
+                <a href="/reservar">Reservar cancha</a>
               </Button>
             </div>
           </section>
 
-          <section className="rounded-lg border border-lime-300/40 bg-slate-950 p-4 shadow-[0_0_36px_rgba(190,242,100,0.18)]">
-            <div className="flex items-start justify-between gap-4">
-              <div className="space-y-3">
-                <Badge className="border-lime-300 bg-lime-300 text-slate-950">
-                  Próximamente
-                </Badge>
-                <div>
-                  <h2 className="text-2xl font-semibold text-white">Torneos</h2>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">
-                    Muy pronto podrás inscribir equipos, ver fixtures,
-                    posiciones y resultados.
-                  </p>
-                </div>
-              </div>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-lime-300/30 bg-lime-300/10 text-lime-300">
-                <Trophy className="h-6 w-6" />
-              </div>
-            </div>
-            <Button className="mt-4 w-full bg-lime-300 text-slate-950 hover:bg-lime-200">
-              Ver próximamente
-            </Button>
-          </section>
+          <HomeTorneosCard />
         </div>
 
         <div className="grid gap-3 text-sm text-slate-200 sm:grid-cols-2">
           <Feature icon={Dumbbell} text="Diseño de app deportiva moderna" />
-          <Feature icon={ShieldCheck} text="Sin i18n, auth, base de datos ni lógica real todavía" />
+          <Feature icon={ShieldCheck} text="Reservas protegidas con sesión y auditoría" />
         </div>
       </section>
     </main>

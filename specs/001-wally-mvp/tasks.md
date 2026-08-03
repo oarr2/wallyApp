@@ -103,27 +103,27 @@
 
 ### Tests for User Story 1
 
-- [ ] T047 [P] [US1] Add integration tests for available slot listing in `tests/integration/reservations/list-available-slots.test.ts`
-- [ ] T048 [P] [US1] Add integration tests for reservation creation and conflict rejection in `tests/integration/reservations/create-reservation.test.ts`
-- [ ] T049 [P] [US1] Add integration tests for Player upcoming reservation scoping in `tests/integration/reservations/player-reservations.test.ts`
-- [ ] T050 [P] [US1] Add Playwright test for the Player browse-to-reservation journey at 320px in `tests/e2e/player-reservation.spec.ts`
+- [X] T047 [P] [US1] Add integration tests for available slot listing in `tests/integration/reservations/list-available-slots.test.ts`
+- [X] T048 [P] [US1] Add integration tests for reservation creation and conflict rejection in `tests/integration/reservations/create-reservation.test.ts`
+- [X] T049 [P] [US1] Add integration tests for Player upcoming reservation scoping in `tests/integration/reservations/player-reservations.test.ts`
+- [X] T050 [P] [US1] Add Playwright test for the Player browse-to-reservation journey at 320px in `tests/e2e/player-reservation.spec.ts`
 
 ### Implementation for User Story 1
 
-- [ ] T051 [US1] Create reservation validation schemas for create and cancel inputs in `lib/validation/reservations.ts`
-- [ ] T052 [US1] Implement available slot query service with schedule, override, and active reservation filtering in `lib/data/reservations.ts`
-- [ ] T053 [US1] Implement transactional reservation creation with conflict protection and audit write in `lib/data/reservations.ts`
-- [ ] T054 [US1] Implement Player upcoming reservation query with payment status in `lib/data/reservations.ts`
-- [ ] T055 [US1] Implement `createReservationAction` and `cancelReservationAction` server action shells in `lib/actions/reservations.ts`
-- [ ] T056 [P] [US1] Create reusable court selector and date selector components in `components/reservations/CourtDateSelector.tsx`
-- [ ] T057 [P] [US1] Create reusable available slot picker component in `components/reservations/SlotPicker.tsx`
-- [ ] T058 [P] [US1] Create card-based reservation component using shadcn/ui Card, Button, and Spanish payment status badge in `components/reservations/ReservationCard.tsx`
-- [ ] T133 [P] [US1] Create mobile-first court card component with clear Spanish primary action in `components/reservations/CourtCard.tsx`
-- [ ] T139 [P] [US1] Create prominent modern sports-style Torneos `Próximamente` home card with neon green placeholder CTA and no tournament logic in `components/reservations/HomeTorneosCard.tsx`
-- [ ] T059 [US1] Create `/reservar` Player page with Spanish loading, empty, conflict, and success states in `app/(player)/reservar/page.tsx`
-- [ ] T060 [US1] Create `/reservas` Player upcoming reservations page with Spanish empty state in `app/(player)/reservas/page.tsx`
-- [ ] T061 [US1] Create `/reservas/[reservationId]` Player reservation detail page with cancellation affordance in `app/(player)/reservas/[reservationId]/page.tsx`
-- [ ] T062 [US1] Wire reservation navigation entries into the shared navigation in `components/navigation/AppNavigation.tsx`
+- [X] T051 [US1] Create reservation validation schemas for create and cancel inputs in `lib/validation/reservations.ts`
+- [X] T052 [US1] Implement available slot query service with schedule, override, and active reservation filtering in `lib/data/reservations.ts`
+- [X] T053 [US1] Implement transactional reservation creation with conflict protection and audit write in `lib/data/reservations.ts`
+- [X] T054 [US1] Implement Player upcoming reservation query with payment status in `lib/data/reservations.ts`
+- [X] T055 [US1] Implement `createReservationAction` and `cancelReservationAction` server action shells in `lib/actions/reservations.ts`
+- [X] T056 [P] [US1] Create reusable court selector and date selector components in `components/reservations/CourtDateSelector.tsx`
+- [X] T057 [P] [US1] Create reusable available slot picker component in `components/reservations/SlotPicker.tsx`
+- [X] T058 [P] [US1] Create card-based reservation component using shadcn/ui Card, Button, and Spanish payment status badge in `components/reservations/ReservationCard.tsx`
+- [X] T133 [P] [US1] Create mobile-first court card component with clear Spanish primary action in `components/reservations/CourtCard.tsx`
+- [X] T139 [P] [US1] Create prominent modern sports-style Torneos `Próximamente` home card with neon green placeholder CTA and no tournament logic in `components/reservations/HomeTorneosCard.tsx`
+- [X] T059 [US1] Create `/reservar` Player page with Spanish loading, empty, conflict, and success states in `app/(player)/reservar/page.tsx`
+- [X] T060 [US1] Create `/reservas` Player upcoming reservations page with Spanish empty state in `app/(player)/reservas/page.tsx`
+- [X] T061 [US1] Create `/reservas/[reservationId]` Player reservation detail page with cancellation affordance in `app/(player)/reservas/[reservationId]/page.tsx`
+- [X] T062 [US1] Wire reservation navigation entries into the shared navigation in `components/navigation/AppNavigation.tsx`
 
 ## Phase 6: User Story 2 - Review Reservation Payments (Priority: P2)
 
