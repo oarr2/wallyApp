@@ -1,9 +1,12 @@
 import { notFound } from "next/navigation";
 import { AppNavigation } from "@/components/navigation/AppNavigation";
+import { PaymentHistoryList, PaymentStatusBadge, getPaymentStatusMeta } from "@/components/payments";
 import { ReservationCard } from "@/components/reservations";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cancelReservationAction } from "@/lib/actions/reservations";
 import { requireAuthContext } from "@/lib/auth/session";
+import { listPaymentHistoryForReservation } from "@/lib/data/payments";
 import { getReservationForActor } from "@/lib/data/reservations";
 
 type ReservationDetailPageProps = {
@@ -26,6 +29,12 @@ export default async function ReservationDetailPage({
   if (!reservation) {
     notFound();
   }
+
+  const paymentHistory = await listPaymentHistoryForReservation({
+    reservationId,
+    actor: context.profile
+  });
+  const paymentMeta = getPaymentStatusMeta(reservation.paymentStatus);
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -52,6 +61,23 @@ export default async function ReservationDetailPage({
           endLocalTime={reservation.endLocalTime.toISOString().slice(11, 19)}
           paymentStatus={reservation.paymentStatus}
         />
+        <Card className="border-lime-300/20 bg-slate-900 text-white">
+          <CardHeader>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-xs uppercase text-slate-400">Estado de pago</p>
+                <CardTitle className="mt-1 text-xl">{paymentMeta.label}</CardTitle>
+              </div>
+              <PaymentStatusBadge status={reservation.paymentStatus} />
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm leading-6 text-slate-300">
+              {paymentMeta.description}
+            </p>
+          </CardContent>
+        </Card>
+        <PaymentHistoryList payments={paymentHistory} />
         <form
           action={cancelReservationAction}
           className="rounded-lg border border-red-300/20 bg-slate-900 p-4"

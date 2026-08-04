@@ -133,23 +133,23 @@
 
 ### Tests for User Story 2
 
-- [ ] T063 [P] [US2] Add unit tests for payment status transitions and Spanish labels in `tests/unit/payments/payment-status.test.ts`
-- [ ] T064 [P] [US2] Add integration tests for idempotent payment event handling in `tests/integration/payments/payment-events.test.ts`
-- [ ] T065 [P] [US2] Add integration tests for admin payment history scoping in `tests/integration/payments/admin-payment-history.test.ts`
-- [ ] T066 [P] [US2] Add Playwright test for Player payment status visibility in `tests/e2e/player-payment-status.spec.ts`
+- [X] T063 [P] [US2] Add unit tests for payment status transitions and Spanish labels in `tests/unit/payments/payment-status.test.ts`
+- [X] T064 [P] [US2] Add integration tests for idempotent payment event handling in `tests/integration/payments/payment-events.test.ts`
+- [X] T065 [P] [US2] Add integration tests for admin payment history scoping in `tests/integration/payments/admin-payment-history.test.ts`
+- [X] T066 [P] [US2] Add Playwright test for Player payment status visibility in `tests/e2e/player-payment-status.spec.ts`
 
 ### Implementation for User Story 2
 
-- [ ] T067 [US2] Create payment validation schemas for status updates and events in `lib/validation/payments.ts`
-- [ ] T068 [US2] Implement payment status label and style mapping in `components/payments/payment-status.ts`
-- [ ] T069 [US2] Implement payment history and current status data access in `lib/data/payments.ts`
-- [ ] T070 [US2] Implement transactional payment status update with reservation sync and audit write in `lib/data/payments.ts`
-- [ ] T071 [US2] Implement idempotent payment event processing in `lib/data/payments.ts`
-- [ ] T072 [US2] Implement `adminUpdatePaymentStatusAction` in `lib/actions/payments.ts`
-- [ ] T073 [US2] Implement `POST /api/pagos/eventos` route handler in `app/api/pagos/eventos/route.ts`
-- [ ] T074 [P] [US2] Create payment status badge component with consistent shadcn/ui Badge variants for `Pendiente`, `Pagado`, `Fallido`, and `Reembolsado` in `components/payments/PaymentStatusBadge.tsx`
-- [ ] T075 [P] [US2] Create payment history list component in `components/payments/PaymentHistoryList.tsx`
-- [ ] T076 [US2] Add payment status and history display to reservation detail page in `app/(player)/reservas/[reservationId]/page.tsx`
+- [X] T067 [US2] Create payment validation schemas for status updates and events in `lib/validation/payments.ts`
+- [X] T068 [US2] Implement payment status label and style mapping in `components/payments/payment-status.ts`
+- [X] T069 [US2] Implement payment history and current status data access in `lib/data/payments.ts`
+- [X] T070 [US2] Implement transactional payment status update with reservation sync and audit write in `lib/data/payments.ts`
+- [X] T071 [US2] Implement idempotent payment event processing in `lib/data/payments.ts`
+- [X] T072 [US2] Implement `adminUpdatePaymentStatusAction` in `lib/actions/payments.ts`
+- [X] T073 [US2] Implement `POST /api/pagos/eventos` route handler in `app/api/pagos/eventos/route.ts`
+- [X] T074 [P] [US2] Create payment status badge component with consistent shadcn/ui Badge variants for `Pendiente`, `Pagado`, `Fallido`, and `Reembolsado` in `components/payments/PaymentStatusBadge.tsx`
+- [X] T075 [P] [US2] Create payment history list component in `components/payments/PaymentHistoryList.tsx`
+- [X] T076 [US2] Add payment status and history display to reservation detail page in `app/(player)/reservas/[reservationId]/page.tsx`
 
 ## Phase 7: User Story 3 - Manage Reservations and Availability (Priority: P3)
 

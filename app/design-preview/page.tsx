@@ -264,6 +264,7 @@ function PaymentStatus() {
         {[
           ["Pagado", "Recibido el 8 de julio", "success"],
           ["Pendiente", "Debe completarse antes del partido", "warning"],
+          ["Fallido", "Rechazado por la pasarela", "danger"],
           ["Reembolsado", "Devuelto por administración", "info"]
         ].map(([status, detail, variant]) => (
           <div
@@ -278,7 +279,7 @@ function PaymentStatus() {
                   <p className="text-xs text-slate-300">{detail}</p>
                 </div>
               </div>
-              <Badge variant={variant as "success" | "warning" | "info"}>
+              <Badge variant={variant as "success" | "warning" | "danger" | "info"}>
                 {status}
               </Badge>
             </div>

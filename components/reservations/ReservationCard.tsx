@@ -1,5 +1,6 @@
 import { CalendarDays, Clock, MapPin } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import type { PaymentStatus } from "@prisma/client";
+import { PaymentStatusBadge } from "@/components/payments/PaymentStatusBadge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -11,17 +12,10 @@ export type ReservationCardProps = {
   localDate: string;
   startLocalTime: string;
   endLocalTime: string;
-  paymentStatus: "PENDING" | "PAID" | "FAILED" | "REFUNDED";
+  paymentStatus: PaymentStatus;
   href?: string;
   className?: string;
 };
-
-const paymentBadge = {
-  PENDING: { label: "Pendiente", className: "border-amber-200 bg-amber-100 text-amber-900" },
-  PAID: { label: "Pagado", className: "border-emerald-200 bg-emerald-100 text-emerald-900" },
-  FAILED: { label: "Fallido", className: "border-red-200 bg-red-100 text-red-900" },
-  REFUNDED: { label: "Reembolsado", className: "border-sky-200 bg-sky-100 text-sky-900" }
-} as const;
 
 export function ReservationCard({
   id,
@@ -34,8 +28,6 @@ export function ReservationCard({
   href,
   className
 }: ReservationCardProps) {
-  const badge = paymentBadge[paymentStatus];
-
   return (
     <Card className={cn("border-lime-300/20 bg-slate-900 text-white", className)}>
       <CardHeader className="gap-3">
@@ -44,7 +36,7 @@ export function ReservationCard({
             <p className="text-xs uppercase text-slate-400">{sportName}</p>
             <CardTitle className="mt-1 text-xl">{courtName}</CardTitle>
           </div>
-          <Badge className={badge.className}>{badge.label}</Badge>
+          <PaymentStatusBadge status={paymentStatus} />
         </div>
       </CardHeader>
       <CardContent className="grid gap-3 text-sm text-slate-200">
