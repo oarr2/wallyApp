@@ -1,4 +1,15 @@
-import { CalendarPlus, ClipboardList, Home, LogOut, Shield, Trophy } from "lucide-react";
+import {
+  CalendarPlus,
+  ClipboardList,
+  Clock,
+  CreditCard,
+  Home,
+  LayoutGrid,
+  LogOut,
+  Shield,
+  Trophy,
+  Waves
+} from "lucide-react";
 import { signOutAction } from "@/lib/actions/auth";
 import { isAdminRole, type AppRole } from "@/lib/auth/authorization";
 import { Button } from "@/components/ui/button";
@@ -11,14 +22,21 @@ export function AppNavigation({
   role?: AppRole | null;
   currentPath?: string;
 }) {
+  const adminItems = role && isAdminRole(role)
+    ? [
+        { href: "/admin/reservas", label: "Reservas admin", icon: Shield },
+        { href: "/admin/canchas", label: "Canchas", icon: LayoutGrid },
+        { href: "/admin/horarios", label: "Horarios", icon: Clock },
+        { href: "/admin/disponibilidad", label: "Disponibilidad", icon: Waves },
+        { href: "/admin/pagos", label: "Pagos", icon: CreditCard }
+      ]
+    : [];
   const items = [
     { href: "/", label: "Inicio", icon: Home },
     { href: "/reservar", label: "Reservar", icon: CalendarPlus },
     { href: "/reservas", label: "Mis reservas", icon: ClipboardList },
     { href: "/torneos", label: "Torneos", icon: Trophy },
-    ...(role && isAdminRole(role)
-      ? [{ href: "/admin/reservas", label: "Administración", icon: Shield }]
-      : [])
+    ...adminItems
   ];
 
   return (

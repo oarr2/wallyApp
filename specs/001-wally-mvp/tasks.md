@@ -159,32 +159,32 @@
 
 ### Tests for User Story 3
 
-- [ ] T077 [P] [US3] Add integration tests for admin court management authorization in `tests/integration/admin/courts.test.ts`
-- [ ] T078 [P] [US3] Add integration tests for admin schedule and availability changes in `tests/integration/admin/availability.test.ts`
-- [ ] T079 [P] [US3] Add integration tests for admin reservation cancellation with required audit reason in `tests/integration/admin/reservations.test.ts`
-- [ ] T080 [P] [US3] Add Playwright test for Venue Administrator availability blocking at 320px in `tests/e2e/admin-availability.spec.ts`
-- [ ] T081 [P] [US3] Add Playwright test for Wally Administrator global admin access in `tests/e2e/wally-admin.spec.ts`
+- [X] T077 [P] [US3] Add integration tests for admin court management authorization in `tests/integration/admin/courts.test.ts`
+- [X] T078 [P] [US3] Add integration tests for admin schedule and availability changes in `tests/integration/admin/availability.test.ts`
+- [X] T079 [P] [US3] Add integration tests for admin reservation cancellation with required audit reason in `tests/integration/admin/reservations.test.ts`
+- [X] T080 [P] [US3] Add Playwright test for Venue Administrator availability blocking at 320px in `tests/e2e/admin-availability.spec.ts`
+- [X] T081 [P] [US3] Add Playwright test for Wally Administrator global admin access in `tests/e2e/wally-admin.spec.ts`
 
 ### Implementation for User Story 3
 
-- [ ] T082 [US3] Implement court create/update admin data access with audit writes in `lib/data/courts.ts`
-- [ ] T083 [US3] Implement schedule rule create/update admin data access with audit writes in `lib/data/schedules.ts`
-- [ ] T084 [US3] Implement availability override create/update admin data access with audit writes in `lib/data/availability.ts`
-- [ ] T085 [US3] Implement admin reservation search, filter, detail, and cancellation data access in `lib/data/admin-reservations.ts`
-- [ ] T086 [US3] Implement admin server actions for courts, schedules, availability, and reservation cancellation in `lib/actions/admin.ts`
-- [ ] T087 [P] [US3] Create admin page shell and filter components using shadcn/ui Tabs, Sheet, Button, and form controls in `components/admin/AdminShell.tsx` and `components/admin/AdminFilters.tsx`
-- [ ] T088 [P] [US3] Create court management form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/CourtForm.tsx`
-- [ ] T089 [P] [US3] Create schedule rule form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/ScheduleRuleForm.tsx`
-- [ ] T090 [P] [US3] Create availability override form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/AvailabilityOverrideForm.tsx`
-- [ ] T091 [P] [US3] Create admin reservation list and detail components with desktop tables and mobile cards in `components/admin/AdminReservationList.tsx` and `components/admin/AdminReservationDetail.tsx`
-- [ ] T092 [P] [US3] Create admin payment history review component with desktop table, mobile cards, filters, and Spanish payment badges in `components/admin/AdminPaymentHistory.tsx`
-- [ ] T134 [P] [US3] Create reusable responsive admin table/card pattern for desktop tables and mobile cards in `components/admin/ResponsiveAdminList.tsx`
-- [ ] T093 [US3] Create court management page in `app/admin/canchas/page.tsx`
-- [ ] T094 [US3] Create schedule management page in `app/admin/horarios/page.tsx`
-- [ ] T095 [US3] Create availability management page in `app/admin/disponibilidad/page.tsx`
-- [ ] T096 [US3] Create reservation management page in `app/admin/reservas/page.tsx`
-- [ ] T097 [US3] Create payment history admin page in `app/admin/pagos/page.tsx`
-- [ ] T098 [US3] Add admin navigation entries gated by role in `components/navigation/AppNavigation.tsx`
+- [X] T082 [US3] Implement court create/update admin data access with audit writes in `lib/data/courts.ts`
+- [X] T083 [US3] Implement schedule rule create/update admin data access with audit writes in `lib/data/schedules.ts`
+- [X] T084 [US3] Implement availability override create/update admin data access with audit writes in `lib/data/availability.ts`
+- [X] T085 [US3] Implement admin reservation search, filter, detail, and cancellation data access in `lib/data/admin-reservations.ts`
+- [X] T086 [US3] Implement admin server actions for courts, schedules, availability, and reservation cancellation in `lib/actions/admin.ts`
+- [X] T087 [P] [US3] Create admin page shell and filter components using shadcn/ui Tabs, Sheet, Button, and form controls in `components/admin/AdminShell.tsx` and `components/admin/AdminFilters.tsx`
+- [X] T088 [P] [US3] Create court management form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/CourtForm.tsx`
+- [X] T089 [P] [US3] Create schedule rule form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/ScheduleRuleForm.tsx`
+- [X] T090 [P] [US3] Create availability override form component using consistent shadcn/ui inputs, selects, dialogs, and buttons in `components/admin/AvailabilityOverrideForm.tsx`
+- [X] T091 [P] [US3] Create admin reservation list and detail components with desktop tables and mobile cards in `components/admin/AdminReservationList.tsx` and `components/admin/AdminReservationDetail.tsx`
+- [X] T092 [P] [US3] Create admin payment history review component with desktop table, mobile cards, filters, and Spanish payment badges in `components/admin/AdminPaymentHistory.tsx`
+- [X] T134 [P] [US3] Create reusable responsive admin table/card pattern for desktop tables and mobile cards in `components/admin/ResponsiveAdminList.tsx`
+- [X] T093 [US3] Create court management page in `app/admin/canchas/page.tsx`
+- [X] T094 [US3] Create schedule management page in `app/admin/horarios/page.tsx`
+- [X] T095 [US3] Create availability management page in `app/admin/disponibilidad/page.tsx`
+- [X] T096 [US3] Create reservation management page in `app/admin/reservas/page.tsx`
+- [X] T097 [US3] Create payment history admin page in `app/admin/pagos/page.tsx`
+- [X] T098 [US3] Add admin navigation entries gated by role in `components/navigation/AppNavigation.tsx`
 
 ## Phase 8: User Story 4 - Access Future Tournaments Placeholder (Priority: P4)
 
