@@ -194,16 +194,16 @@
 
 ### Tests for User Story 4
 
-- [ ] T099 [P] [US4] Add Playwright test for the Torneos placeholder content and absence of tournament controls in `tests/e2e/torneos-placeholder.spec.ts`
-- [ ] T140 [P] [US4] Add Playwright test that the home or main availability dashboard shows the Torneos `Próximamente` card at 320px before navigation in `tests/e2e/home-torneos-card.spec.ts`
-- [ ] T100 [P] [US4] Add static guard test that no tournament models, actions, or admin routes exist in `tests/unit/scope/no-tournament-functionality.test.ts`
+- [X] T099 [P] [US4] Add Playwright test for the Torneos placeholder content and absence of tournament controls in `tests/e2e/torneos-placeholder.spec.ts`
+- [X] T140 [P] [US4] Add Playwright test that the home or main availability dashboard shows the Torneos `Próximamente` card at 320px before navigation in `tests/e2e/home-torneos-card.spec.ts`
+- [X] T100 [P] [US4] Add static guard test that no tournament models, actions, or admin routes exist in `tests/unit/scope/no-tournament-functionality.test.ts`
 
 ### Implementation for User Story 4
 
-- [ ] T101 [US4] Create the polished Spanish Torneos `Próximamente` page using shared shadcn/ui layout patterns and no tournament actions in `app/torneos/page.tsx`
-- [ ] T102 [US4] Add the Torneos navigation item without admin tournament controls in `components/navigation/AppNavigation.tsx`
-- [ ] T103 [US4] Add shared placeholder copy constants for Torneos in `components/navigation/torneos-copy.ts`
-- [ ] T141 [US4] Reuse Torneos placeholder copy in the home card and ensure CTA text remains non-functional placeholder copy in `components/reservations/HomeTorneosCard.tsx`
+- [X] T101 [US4] Create the polished Spanish Torneos `Próximamente` page using shared shadcn/ui layout patterns and no tournament actions in `app/torneos/page.tsx`
+- [X] T102 [US4] Add the Torneos navigation item without admin tournament controls in `components/navigation/AppNavigation.tsx`
+- [X] T103 [US4] Add shared placeholder copy constants for Torneos in `components/navigation/torneos-copy.ts`
+- [X] T141 [US4] Reuse Torneos placeholder copy in the home card and ensure CTA text remains non-functional placeholder copy in `components/reservations/HomeTorneosCard.tsx`
 
 ## Phase 9: Responsive Spanish-Only Validation
 

@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { signOutAction } from "@/lib/actions/auth";
 import { isAdminRole, type AppRole } from "@/lib/auth/authorization";
+import { TORNEOS_PLACEHOLDER_COPY } from "@/components/navigation/torneos-copy";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -35,7 +36,7 @@ export function AppNavigation({
     { href: "/", label: "Inicio", icon: Home },
     { href: "/reservar", label: "Reservar", icon: CalendarPlus },
     { href: "/reservas", label: "Mis reservas", icon: ClipboardList },
-    { href: "/torneos", label: "Torneos", icon: Trophy },
+    { href: "/torneos", label: TORNEOS_PLACEHOLDER_COPY.title, icon: Trophy },
     ...adminItems
   ];
 
